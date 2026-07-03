@@ -1409,6 +1409,7 @@ h3 {
     padding: 18px;
     flex-direction: column;
     gap: 7px;
+    border-radius: 20px;
   }
 
   .quick-book input,
@@ -1416,6 +1417,91 @@ h3 {
   .quick-book a {
     width: 100%;
   }
+}
+
+/* Upcoming Events: slow infinite scroll */
+.event-scroll {
+  overflow: hidden;
+  width: 100%;
+}
+
+.event-scroll .event-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: eventScroll 42s linear infinite;
+}
+
+.event-scroll .event-card {
+  width: clamp(140px, 22vw, 280px);
+  aspect-ratio: 1/1;
+  flex: 0 0 auto;
+}
+
+.event-scroll:hover .event-grid {
+  animation-play-state: paused;
+}
+
+@keyframes eventScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Our Story cards: taller */
+.feature-grid.three .photo {
+  min-height: 420px;
+  padding-top: 280px;
+}
+
+@media (max-width: 768px) {
+  .feature-grid.three .photo {
+    min-height: 340px;
+    padding-top: 220px;
+  }
+}
+
+/* Food & Drinks: reuse Featured Dishes imagery */
+.dish.lamb {
+  background-image: url("https://i.postimg.cc/mDk66stX/meal-6.jpg");
+}
+
+.dish.pasta {
+  background-image: url("https://i.postimg.cc/m27RSYxh/meal-5.jpg");
+}
+
+.dish.schnitzel {
+  background-image: url("https://i.postimg.cc/DZW34sdf/meal-4.jpg");
+}
+
+.dish.mojito {
+  background-image: url("https://i.postimg.cc/qMcVKpn2/meal-3.jpg");
+}
+
+/* Gallery: reuse Featured Dishes imagery */
+.gallery-grid figure:nth-child(1),
+.gallery-grid figure:nth-child(6),
+.gallery-grid figure:nth-child(11) {
+  background-image: url("https://i.postimg.cc/mDk66stX/meal-6.jpg");
+}
+
+.gallery-grid figure:nth-child(2),
+.gallery-grid figure:nth-child(7) {
+  background-image: url("https://i.postimg.cc/m27RSYxh/meal-5.jpg");
+}
+
+.gallery-grid figure:nth-child(3),
+.gallery-grid figure:nth-child(8) {
+  background-image: url("https://i.postimg.cc/DZW34sdf/meal-4.jpg");
+}
+
+.gallery-grid figure:nth-child(4),
+.gallery-grid figure:nth-child(9) {
+  background-image: url("https://i.postimg.cc/qMcVKpn2/meal-3.jpg");
+}
+
+.gallery-grid figure:nth-child(5),
+.gallery-grid figure:nth-child(10) {
+  background-image: url("https://i.postimg.cc/vmBpC9KY/meal-2.jpg");
 }
 
   </style>
@@ -1447,21 +1533,11 @@ h3 {
         <div class="hero-copy">
           <p>Experience Mokopane's</p>
           <h1>Premium <span>Lifestyle</span> Destination</h1>
-          <div class="hero-tags">Restaurant <i></i> Nightlife <i></i> Family Entertainment <i></i> Private Events <i></i> Conference Venue</div>
           <div class="hero-actions">
             <a href="#booking" class="btn primary">Book a Table</a>
             <a href="#events" class="btn ghost">Book an Event</a>
           </div>
         </div>
-        <div class="social-cue">Social Media</div>
-      </div>
-
-      <div class="stats-bar">
-        <div><span>Est'd</span><strong>2022</strong></div>
-        <div><span>500+</span><strong>Events Hosted</strong></div>
-        <div><span>1000+</span><strong>Happy Guests</strong></div>
-        <div><span>Premium</span><strong>Dining</strong></div>
-        <div><span>Conference</span><strong>Facilities</strong></div>
       </div>
 
       <section class="split intro-band">
@@ -1491,11 +1567,17 @@ h3 {
           <h2>Upcoming Events</h2>
           <a href="#events" class="btn ghost small">View All Events</a>
         </div>
-        <div class="event-grid">
-          <article class="event-card dj"><time>Sat<br>25<br>July</time><h3>DJ Zan D</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
-          <article class="event-card kwesta"><time>Sat<br>01<br>June</time><h3>Kwesta</h3><p>Live Performance</p><a href="#booking">Book Now</a></article>
-          <article class="event-card lady"><time>Sat<br>15<br>June</time><h3>Lady Zamar</h3><p>Live in Mokopane</p><a href="#booking">Book Now</a></article>
-          <article class="event-card hiphop"><time>Sat<br>29<br>June</time><h3>Hip Hop Night</h3><p>Experience</p><a href="#booking">Book Now</a></article>
+        <div class="event-scroll">
+          <div class="event-grid">
+            <article class="event-card dj"><time>Sat<br>25<br>July</time><h3>DJ Zan D</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
+            <article class="event-card kwesta"><time>Sat<br>01<br>June</time><h3>Kwesta</h3><p>Live Performance</p><a href="#booking">Book Now</a></article>
+            <article class="event-card lady"><time>Sat<br>15<br>June</time><h3>Lady Zamar</h3><p>Live in Mokopane</p><a href="#booking">Book Now</a></article>
+            <article class="event-card hiphop"><time>Sat<br>29<br>June</time><h3>Hip Hop Night</h3><p>Experience</p><a href="#booking">Book Now</a></article>
+            <article class="event-card dj" aria-hidden="true"><time>Sat<br>25<br>July</time><h3>DJ Zan D</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
+            <article class="event-card kwesta" aria-hidden="true"><time>Sat<br>01<br>June</time><h3>Kwesta</h3><p>Live Performance</p><a href="#booking">Book Now</a></article>
+            <article class="event-card lady" aria-hidden="true"><time>Sat<br>15<br>June</time><h3>Lady Zamar</h3><p>Live in Mokopane</p><a href="#booking">Book Now</a></article>
+            <article class="event-card hiphop" aria-hidden="true"><time>Sat<br>29<br>June</time><h3>Hip Hop Night</h3><p>Experience</p><a href="#booking">Book Now</a></article>
+          </div>
         </div>
       </section>
 
@@ -1566,17 +1648,6 @@ h3 {
           <a href="#booking" class="btn primary small">Reserve a Table</a>
         </div>
       </div>
-      <div class="menu-tabs" role="tablist" aria-label="Menu categories">
-        <button class="active" type="button">Starters</button>
-        <button type="button">Main Meals</button>
-        <button type="button">Platters</button>
-        <button type="button">Pizza</button>
-        <button type="button">Burgers</button>
-        <button type="button">Desserts</button>
-        <button type="button">Cocktails</button>
-        <button type="button">Wine & Spirits</button>
-        <button type="button">Soft Drinks</button>
-      </div>
       <section class="compact-section">
         <h2>Our Signature Selection</h2>
         <div class="dish-row large">
@@ -1601,11 +1672,17 @@ h3 {
           <h2>Upcoming Events</h2>
           <a href="#events" class="btn ghost small">View All Events</a>
         </div>
-        <div class="event-grid">
-          <article class="event-card dj"><time>Sat<br>25<br>July</time><h3>DJ Zan D</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
-          <article class="event-card kwesta"><time>Sat<br>01<br>June</time><h3>Kwesta</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
-          <article class="event-card lady"><time>Sat<br>15<br>June</time><h3>Lady Zamar</h3><p>Live in Mokopane</p><a href="#booking">Book Now</a></article>
-          <article class="event-card hiphop"><time>Sat<br>29<br>June</time><h3>Hip Hop</h3><p>Night</p><a href="#booking">Book Now</a></article>
+        <div class="event-scroll">
+          <div class="event-grid">
+            <article class="event-card dj"><time>Sat<br>25<br>July</time><h3>DJ Zan D</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
+            <article class="event-card kwesta"><time>Sat<br>01<br>June</time><h3>Kwesta</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
+            <article class="event-card lady"><time>Sat<br>15<br>June</time><h3>Lady Zamar</h3><p>Live in Mokopane</p><a href="#booking">Book Now</a></article>
+            <article class="event-card hiphop"><time>Sat<br>29<br>June</time><h3>Hip Hop</h3><p>Night</p><a href="#booking">Book Now</a></article>
+            <article class="event-card dj" aria-hidden="true"><time>Sat<br>25<br>July</time><h3>DJ Zan D</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
+            <article class="event-card kwesta" aria-hidden="true"><time>Sat<br>01<br>June</time><h3>Kwesta</h3><p>Live Set</p><a href="#booking">Book Now</a></article>
+            <article class="event-card lady" aria-hidden="true"><time>Sat<br>15<br>June</time><h3>Lady Zamar</h3><p>Live in Mokopane</p><a href="#booking">Book Now</a></article>
+            <article class="event-card hiphop" aria-hidden="true"><time>Sat<br>29<br>June</time><h3>Hip Hop</h3><p>Night</p><a href="#booking">Book Now</a></article>
+          </div>
         </div>
       </section>
       <section class="compact-section">
@@ -1632,15 +1709,6 @@ h3 {
       <section class="gallery-page">
         <p class="eyebrow">Moments at</p>
         <h1>PV Lifestyle</h1>
-        <div class="filters">
-          <button class="active" data-filter="all" type="button">All</button>
-          <button data-filter="restaurant" type="button">Restaurant</button>
-          <button data-filter="food" type="button">Food</button>
-          <button data-filter="events" type="button">Events</button>
-          <button data-filter="night" type="button">Nightlife</button>
-          <button data-filter="family" type="button">Family</button>
-          <button data-filter="conference" type="button">Conference</button>
-        </div>
         <div class="gallery-grid">
           <figure class="interior" data-kind="restaurant"></figure>
           <figure class="food-one" data-kind="food"></figure>
