@@ -1339,16 +1339,141 @@ h3 {
 
 .footer {
   width: min(var(--max), calc(100% - 24px));
-  margin: 0 auto 24px;
-  padding: 18px 24px;
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
+  margin: 60px auto 24px;
   color: #bfbfbf;
   border: 1px solid var(--line);
-  border-top: 0;
   background: #050505;
+  font-size: 13px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px 24px;
+  padding: 48px 32px 32px;
+}
+
+.footer-brand img {
+  width: 110px;
+  margin-bottom: 18px;
+}
+
+.footer-brand p {
+  color: #bfbfbf;
+  line-height: 1.7;
+  max-width: 320px;
+  margin: 0 0 20px;
+}
+
+.footer-brand .footer-tagline {
+  color: var(--orange);
+  font-family: "Oswald", Impact, "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.footer-col h3 {
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col address {
+  font-style: normal;
+}
+
+.footer-col a,
+.footer-col address,
+.footer-col p {
+  color: #bfbfbf;
+  font-size: 13px;
+  line-height: 1.6;
+  text-decoration: none;
+  margin: 0;
+}
+
+.footer-col a {
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover,
+.footer-col a:focus-visible {
+  color: var(--orange);
+}
+
+.footer-contact-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-contact-list span {
+  color: #8c8c8c;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.footer-socials a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #161616;
+  border: 1px solid var(--line);
+  color: var(--orange);
+  font-weight: 900;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  background: var(--orange);
+  color: #050505;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  color: #8c8c8c;
   font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom a {
+  color: #8c8c8c;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: var(--orange);
 }
 
 @media (max-width: 1080px) {
@@ -1369,6 +1494,10 @@ h3 {
   .contact-photo {
     display: block;
     min-height: 290px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1452,8 +1581,19 @@ h3 {
     padding-top: 46px;
   }
 
-  .footer {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    padding: 40px 24px 24px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
     flex-direction: column;
+    text-align: center;
+    padding: 16px 24px;
   }
 }
 
@@ -1462,6 +1602,16 @@ h3 {
   .site-header,
   .footer {
     width: calc(100% - 12px);
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    padding: 36px 20px 20px;
+    gap: 28px;
+  }
+
+  .footer-brand p {
+    max-width: none;
   }
 
   .brand img {
@@ -1906,8 +2056,55 @@ h3 {
   </div>
 
   <footer class="footer">
-    <span>&copy; 2026 PV Lifestyle. All Rights Reserved.</span>
-    <span>Designed with passion in Mokopane</span>
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <p class="footer-tagline">PV Lifestyle</p>
+        <p>Fine dining with an intimate atmosphere. Serving up the freshest, most delicious food and meats on the market today, coupled with an impressive wine list of rare and exclusive vintages, you're sure to experience something exceptional when you visit our restaurant.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pv.lifestyle2022/" target="_blank" rel="noopener noreferrer" aria-label="PV Lifestyle on Instagram">ig</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <span>Address</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=67+Van+Heerden+St%2C+Mokopane%2C+0600" target="_blank" rel="noopener noreferrer">67 Van Heerden St, Mokopane, 0600</a>
+          </li>
+          <li>
+            <span>Phone</span>
+            <a href="tel:+27765069520">076 506 9520</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Opening Hours</h3>
+        <ul>
+          <li>Monday - Thursday<br>11:00 - 23:00</li>
+          <li>Friday - Saturday<br>11:00 - 02:00</li>
+          <li>Sunday<br>11:00 - 22:00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#food">Food &amp; Drinks</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 PV Lifestyle. All Rights Reserved.</span>
+      <span>Designed with passion in Mokopane</span>
+    </div>
   </footer>
 
   <script>
